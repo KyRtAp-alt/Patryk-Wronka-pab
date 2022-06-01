@@ -1,0 +1,38 @@
+<a href="/authors/add">Add</a>
+
+<table>
+    <thead>
+        <th>
+            Name
+        </th>
+        <th>
+            Bio
+        </th>
+        <th>
+            Actions
+        </th>
+        <th>
+            Actions
+        </th>
+    </thead>
+    <tbody>
+        <% allAuthors.forEach(function(author){ %>
+        <tr>
+            <td> <%= author.name %></td>
+            <td> <%= author.bio %></td>
+            <td>
+                <button onclick="location.href='/authors/<%=author._id %>/edit'" Id="<%= author._id %>">Edit</button>
+            </td>
+            <td>
+                <form action="/authors/<%= author._id %>/delete" method="post">
+                    <button type="submit">Delete</button>
+                </form>
+
+            </td>
+            
+        </tr>
+        <% }); %>
+
+    </tbody>
+</table>
+ 
