@@ -1,0 +1,27 @@
+<a href="/publishinghouses/add">Add</a>
+<table>
+    <thead>
+        <th>
+            Name
+        </th>
+        <th>
+            Description
+        </th>
+    </thead>
+    <tbody>
+        <% allPublishingHouses.forEach(function(publishinghouse){ %>
+        <tr>
+            <td> <%= publishinghouse.name %></td>
+            <td> <%= publishinghouse.description %></td>
+            <td>
+            <button onclick="location.href='/publishinghouses/<%=publishinghouse._id %>/edit'" Id="<%= publishinghouse._id %>">Edit</button>
+            </td>
+            <td>
+                <form action="/publishinghouses/<%= publishinghouse._id %>/delete" method="post">
+                    <button type="submit">Delete</button>
+                </form>
+            </td>
+        </tr>
+        <% }); %>
+    </tbody>
+</table>
