@@ -1,0 +1,44 @@
+<a href="/books/add">Add</a>
+<table>
+    <thead>
+        <th>
+            Name
+        </th>
+        <th>
+            Description
+        </th>
+        <th>
+            Price
+        </th>
+        <th>
+            Release Date
+        </th>
+        <th>
+            Book Category
+        </th>
+        <th>
+            Number Of Pages
+        </th>
+    </thead>
+    <tbody>
+        <% allBooks.forEach(function(book){ %>
+        <tr>
+            <td> <%= book.name %></td>
+            <td> <%= book.description %></td>
+            <td> <%= book.price %></td>
+            <td> <%= book.releaseDate %></td>
+            <td> <%= book.bookCategory %></td>
+            <td> <%= book.numberOfPages %></td>
+            <td>
+            <button onclick="location.href='/books/<%=book._id %>/edit'" Id="<%= book._id %>">Edit</button>
+             </td>
+             <td>
+                <form action="/books/<%= book._id %>/delete" method="post">
+                    <button type="submit">Delete</button>
+                </form>
+            </td>
+        </tr>
+        <% }); %>
+    </tbody>
+</table>
+ 
